@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## run command:
-## for x in `/bin/ls *.fq.gz` ; do bash fastqc.sh $x; done
+## for x in `/bin/ls *.R1.fq.gz` ; do bash fastqc.sh $x; done
 
 ## set variable names
 FASTQfile=`echo $1`
@@ -23,10 +23,10 @@ cat > $name.tempscript.sh << EOF
 
 echo "STARTING fastqc"
 fastqc ./$FASTQfile
+rm "$(echo $name)_fastqc.zip"
 EOF
 
 ## qsub then remove the tempscript & useless zipfile
 qsub $name.tempscript.sh 
 sleep 1
 rm $name.tempscript.sh
-rm "$(echo $name)_fastqc.zip"
