@@ -20,8 +20,8 @@ cat > $NAME.tempscript.sh << EOF
 #$ -V
 #$ -l h_vmem=4G
 #$ -pe shm 12
-#$ -l h_rt=11:59:00
-#$ -l s_rt=11:59:00
+#$ -l h_rt=5:59:00
+#$ -l s_rt=5:59:00
 
 ########################################### Trim low quality bases and adaptors from reads
 ###### note --trim1 option can be used for ATAC-seq data trimming, as it helps with Bowtie
