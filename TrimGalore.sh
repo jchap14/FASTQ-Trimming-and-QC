@@ -4,8 +4,8 @@
 ##### for x in `/bin/ls *.untrimmed.R1.fq.gz` ; do bash TrimGalore.sh $x; done
 
 ## add modules
-module add trim_galore
-module add fastqc
+# module add trim_galore
+# module add fastqc
 
 ## define variables
 read1=`echo $1`
@@ -38,6 +38,8 @@ echo "Moving FASTQC reports to ./FASTQC/"
 mkdir FASTQC/
 mv $NAME.untrimmed.R1_val_1_fastqc.html ./FASTQC/
 mv $NAME.untrimmed.R2_val_2_fastqc.html ./FASTQC/
+mv $NAME.untrimmed.R1_val_1_fastqc.zip ./FASTQC/
+mv $NAME.untrimmed.R2_val_2_fastqc.zip ./FASTQC/
 EOF
 
 ## qsub then remove the tempscript
